@@ -1,0 +1,36 @@
+<div class="banner">
+    <!-- header -->
+    <header>	
+  <nav class="mnu navbar-light">
+        <div class="logo" id="logo">
+            <h1><a routerLink='/home'>W-Planner</a></h1>
+        </div>
+    <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+            <input type="checkbox" id="drop">
+                <ul class="menu">
+                    <li class="active"><a routerLink='/home'>Home</a></li>
+        <li><a routerLink='/aboutus'>About</a></li>
+        
+             
+        <li><a routerLink='/gallary'>Gallery</a> </li>                      
+<li><a routerLink='/contactus'>Contact Us</a></li>
+ <li ><a *ngIf="!svc.loggedin" routerLinkActive="active" routerLink='/login'>Login</a></li>
+ 
+ <li ><a routerLink='/vendorlist'  routerLinkActive="active"  *ngIf="svc.loggedin">Vendor </a></li>
+ <li ><a routerLink='/venueregister'  routerLinkActive="active" *ngIf="svc.loggedin">Venue </a></li>
+ <li ><a routerLink='/logout'   routerLinkActive="active" *ngIf="svc.loggedin" (click)="Logout()">Logout </a></li>
+                </ul>
+  </nav>
+  </header>
+  <!-- //header -->
+    <div class="container">
+        <!-- banner-text -->
+        <div class="banner-text">
+            <div class="slider-info">
+                <h3>Destination Weddings</h3>
+      <a routerLink='/aboutus' class="banner-button btn mt-md-5 mt-4">Know More</a>
+    </div>
+        </div>
+    </div>
+  </div>
+
