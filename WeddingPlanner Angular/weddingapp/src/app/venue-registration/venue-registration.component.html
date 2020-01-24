@@ -8,41 +8,41 @@
     <tr>
         <td align="right"><span class="glyphicon glyphicon-user"></span></td>
         <td colspan="2">
-            <select  id="vendorSelect" name="vendorId" class="form-control"  ngModel required >
-            <option>Select Vendor</option>
+            <select  id="venueSelect" name="venueId" class="form-control"  ngModel  hidden required >
+            <option>Select Venue</option>
             </select> 
         </td>
     </tr>
     <tr>
         <td align="right"><span class="glyphicon glyphicon-map-marker"></span></td>
-        <td colspan="2"><input type="text" name="venueName" placeholder="Name of the Venue" class="form-control"   ngModel required ></td>
+        <td colspan="2"><input type="text" appWordsOnly name="venueName" placeholder="Name of the Venue" class="form-control" ngModel required ></td>
     </tr>
     <tr  ngModelGroup="address">
         <td align="right"><span class="glyphicon glyphicon-map-marker"></span></td>
-        <td><input type="text" name="area" placeholder="Area" class="form-control" ngModel  required></td>
-        <td><input type="text" name="street" placeholder="Street" class="form-control" ngModel required></td>
+        <td><input type="text" appWordsOnly name="area" placeholder="Area" class="form-control" ngModel  required></td>
+        <td><input type="text" appWordsOnly name="street" placeholder="Street" class="form-control" ngModel required></td>
     </tr>
 
     <tr ngModelGroup="address">
         <td></td>
-        <td><input type="text" name="city" placeholder="City" class="form-control" ngModel  required></td>
-        <td><input type="text" name="state" placeholder="State" class="form-control" ngModel required></td>
+        <td><input type="text" appWordsOnly name="city" placeholder="City" class="form-control" ngModel  required></td>
+        <td><input type="text" appWordsOnly name="state" placeholder="State" class="form-control" ngModel required></td>
     </tr>
 
     <tr ngModelGroup="address">
         <td></td>
-        <td><input type="text" name="pincode" placeholder="Pin Code" class="form-control"  ngModel  required></td>
+        <td><input type="text" appNumbersOnly minlength="6" maxlength="6" name="pincode" placeholder="Pin Code" class="form-control"  ngModel  required></td>
         <td></td>
     </tr>
 
    
     <tr>
         <td align="right"><span class="glyphicon glyphicon-user"></span></td>
-        <td colspan="2"><input type="number" name="capacity" placeholder="Capacity" class="form-control"  ngModel required></td>
+        <td colspan="2"><input type="number" appNumbersOnly name="capacity" placeholder="Capacity" class="form-control"  ngModel required></td>
      </tr>
     <tr>
         <td align="right"><span class="glyphicon glyphicon-user"></span></td>
-        <td colspan="2"><input type="number" name="price" placeholder="Price" class="form-control"  ngModel required ></td>
+        <td colspan="2"><input type="number" appNumbersOnly name="price" placeholder="Price" class="form-control"  ngModel required ></td>
     </tr>
     <tr>
         <td align="right"><span class="glyphicon glyphicon-user"></span></td>
