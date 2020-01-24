@@ -18,6 +18,7 @@ import { VenueRegistrationComponent } from './venue-registration/venue-registrat
 import { AuthGuard } from './guards/auth.guard';
 import { NumbersOnlyDirective } from './Directives/numbers-only.directive';
 import { WordsOnlyDirective } from './Directives/words-only.directive';
+import { AdminVenueListComponent } from './admin-venue-list/admin-venue-list.component';
 
 
 
@@ -41,6 +42,7 @@ import { WordsOnlyDirective } from './Directives/words-only.directive';
     VenueRegistrationComponent,
     NumbersOnlyDirective,
     WordsOnlyDirective,
+    AdminVenueListComponent,
     
     
   ],

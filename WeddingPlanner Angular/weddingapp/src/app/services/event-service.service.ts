@@ -11,7 +11,9 @@ export class EventServiceService {
   getAllVenue()
   {
   return this.http.get(this.baseUrl);
-    
-
+  }
+  deleteVenueById(id)
+  {
+    return this.http.delete(this.baseUrl+id);
   }
 }
