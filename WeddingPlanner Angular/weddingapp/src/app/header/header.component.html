@@ -3,28 +3,36 @@
     <header>	
   <nav class="mnu navbar-light">
         <div class="logo" id="logo">
-            <h1><a routerLink='/home'>W-Planner</a></h1>
+            <h1><a routerLink='/home'>Fantacy</a></h1>
         </div>
-    <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+    <label for="drop" class="toggle">Ser<span class="fa fa-bars"></span></label>
             <input type="checkbox" id="drop">
                 <ul class="menu">
-                    <li class="active"><a routerLink='/venueregister'>Home</a></li>
+                    <li class="active"><a routerLink='/home'>Home</a></li>
         <li><a routerLink='/aboutus'>About</a></li>
         <li>
                         <!-- First Tier Drop Down -->
-                        <label for="drop-2" class="toggle">Drop Down <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
-                        <a href="#">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                        <label for="drop-2"> <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+                        <a href="#">Services <span class="fa fa-angle-down" aria-hidden="true"></span></a>
                         <input type="checkbox" id="drop-2" />
                         <ul>
-                          <li><a href="services.html">Services</a>
+                          <li><a routerLink='/venue'>Venue</a>
             </li>
              
-                            <li><a routerLink='/gallary'>Gallery</a>
+                            <li><a routerLink='/decoration'>Decoration</a>
+                            </li>
+
+                            <li><a routerLink='/catering'>Catering</a>
                             </li>
                         </ul>
                     </li>
+                    <li><a routerLink='/events'>Venue</a></li>
+                    <li><a routerLink='/decoration'>Decoration</a></li>
+                    <li><a routerLink='/catering'>Catering</a></li>
+                   <li><a routerLink='/gallary'>Gallery</a></li>
   
                     <li><a routerLink='/contactus'>Contact Us</a></li>
+                    
                 </ul>
   </nav>
   </header>
