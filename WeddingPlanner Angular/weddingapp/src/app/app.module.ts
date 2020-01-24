@@ -18,6 +18,10 @@ import { VenueRegistrationComponent } from './venue-registration/venue-registrat
 import { AuthGuard } from './guards/auth.guard';
 import { NumbersOnlyDirective } from './Directives/numbers-only.directive';
 import { WordsOnlyDirective } from './Directives/words-only.directive';
+import { VenueListtComponent } from './venue-listt/venue-listt.component';
+import { DateComponent } from './date/date.component';
+import { EventregisterComponent } from './eventregister/eventregister.component';
+
 
 
 
@@ -41,6 +45,9 @@ import { WordsOnlyDirective } from './Directives/words-only.directive';
     VenueRegistrationComponent,
     NumbersOnlyDirective,
     WordsOnlyDirective,
+    VenueListtComponent,
+    DateComponent,
+    EventregisterComponent
     
     
   ],
@@ -92,6 +99,18 @@ import { WordsOnlyDirective } from './Directives/words-only.directive';
           path:'vendorlist',
           component:VendorListComponent,
            canActivate : [AuthGuard] 
+        },
+        {
+          path:'eventregister',
+          component:EventregisterComponent
+        },
+        {
+          path:'date',
+          component:DateComponent
+        },
+        {
+          path:'events',
+          component:VenueListtComponent
         }
       ]
     )
