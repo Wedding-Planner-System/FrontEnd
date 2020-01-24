@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class VenueListtComponent implements OnInit {
 
   venueList:any=[];
+  myData:any;
   constructor(public router:Router,public svc:EventServiceService) { }
 
   ngOnInit() {
@@ -22,15 +23,26 @@ export class VenueListtComponent implements OnInit {
       {
         var data:string;
         data=this.venueList[i].venueImage;
-        console.log(data);
+        //console.log(data);
+        this.myData=data;
+       var myFile:Blob= this.dataURItoBlob(data);
         
-  }
-
-  
-})
+      }
+    })
     
     
 }
+dataURItoBlob(data) {
+  var binary = atob(data.split(',')[1]);
+  var array = [];
+for (var i = 0; i < binary.length; i++) {
+   array.push(binary.charCodeAt(i));
+}
+return new Blob([new Uint8Array(array)], {
+  type: 'image/jpg'
+});
+}
+
 
   NavigateToDate()
   {
