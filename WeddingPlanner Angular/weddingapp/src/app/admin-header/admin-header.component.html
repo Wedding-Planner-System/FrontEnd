@@ -17,7 +17,7 @@
  <li ><a *ngIf="!svc.loggedin" routerLinkActive="active" routerLink='/login'>Login</a></li>
  
  <li ><a routerLink='/vendorlist'  routerLinkActive="active"  *ngIf="svc.loggedin">Vendor </a></li>
- <li ><a routerLink='/venueregister'  routerLinkActive="active" *ngIf="svc.loggedin">Venue </a></li>
+ <li ><a routerLink='/venuelist'  routerLinkActive="active" *ngIf="svc.loggedin">Venue </a></li>
  <li ><a routerLink='/logout'   routerLinkActive="active" *ngIf="svc.loggedin" (click)="Logout()">Logout </a></li>
                 </ul>
   </nav>
