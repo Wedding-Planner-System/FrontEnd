@@ -1,5 +1,5 @@
 <div class="container">
-    <form #eventForm="ngForm" (ngSubmit)="SubmitDetails(eventForm.value)">
+    <form ngNativeValidate #eventForm="ngForm" (ngSubmit)="SubmitDetails(eventForm.value)">
 
     <table align="center">
         <caption style="caption-side: top;" align="center"><h2> Registeration Form</h2></caption>
@@ -7,8 +7,8 @@
         
         <tr>
             <td align="right"><span class="glyphicon glyphicon-user"></span></td>
-            <td><input type="text" name="userFirstName" placeholder="First Name" class="form-control" ngModel required  ></td>
-            <td><input type="text" name="userLastName" placeholder="Last Name" class="form-control" ngModel required ></td>
+            <td><input type="text" appWordsOnly name="userFirstName" placeholder="First Name" class="form-control" ngModel required  ></td>
+            <td><input type="text" appWordsOnly name="userLastName" placeholder="Last Name" class="form-control" ngModel required ></td>
         </tr>
         <tr >
             <td align="right"><span class="glyphicon glyphicon-envelope"></span></td>
@@ -20,7 +20,7 @@
     
         <tr>
             <td align="right"><span class="glyphicon glyphicon-earphone"></span></td>
-            <td><input type="text" name="userContactNumber" placeholder="Enter Contact Number" class="form-control" ngModel required></td>
+            <td><input type="text" appNumbersOnly  minlength="10" maxlength="10" name="userContactNumber" placeholder="Enter Contact Number" class="form-control" ngModel required></td>
             <td></td>
         </tr>
     
