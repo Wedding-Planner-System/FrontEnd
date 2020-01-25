@@ -1,14 +1,14 @@
 <div class="container">
-    <form #venueForm="ngForm" (ngSubmit)="SubmitDetails(venueForm.value)">
+    <form ngNativeValidate #venueForm="ngForm" (ngSubmit)="SubmitDetails(venueForm.value)">
         
         
 <table align="center">
     <caption style="caption-side: top;" align="center"><h2> Venue Registration</h2></caption>
 
-    <tr>
+    <tr hidden>
         <td align="right"><span class="glyphicon glyphicon-user"></span></td>
         <td colspan="2">
-            <select  id="venueSelect" name="venueId" class="form-control"  ngModel  hidden required >
+            <select  id="venueSelect" name="venueId" class="form-control"  ngModel required >
             <option>Select Venue</option>
             </select> 
         </td>
