@@ -10,7 +10,8 @@ import { UserLoginService } from './services/user-login.service';
 })
 export class AppComponent  implements OnInit{
   title = 'weddingapp';
-    
+    isLoggedin:string=null;
+    sub:any;
  constructor( private route: ActivatedRoute,
   private router: Router,
   public svc:UserLoginService,
@@ -20,5 +21,24 @@ export class AppComponent  implements OnInit{
  }
 
  ngOnInit()
- {}
+ {
+this.isLoggedin=localStorage.getItem("isLoggedIn");
+if(this.isLoggedin !=null)
+{
+  this.svc.loggedin=true;
+  //return this.router.navigate(['home']);
+}
+else if (this.isLoggedin==null){
+this.svc.loggedin=false;
+}
+
+this.sub=this.route
+      .data
+      .subscribe(v => console.log(v));
+      alert(JSON.stringify(this.sub));
+
+ }
+
+
+
 }

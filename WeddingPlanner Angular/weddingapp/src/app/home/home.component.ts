@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserLoginService } from '../services/user-login.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  isLoggedin:any;
+  constructor(public svc: UserLoginService) { }
 
   ngOnInit() {
+
+    this.isLoggedin=localStorage.getItem("isLoggedIn");
+if(this.isLoggedin.localeCompare("true"))
+{
+  this.svc.loggedin=true;
+}
   }
 
 }

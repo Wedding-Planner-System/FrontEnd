@@ -31,9 +31,13 @@ export class LoginComponent implements OnInit {
       if(res=='Success')
       {
        // alert(res);
-        this.router.navigate(['home']);
+        
         this.svc.loggedin=true;
         localStorage.setItem('isLoggedIn',"true");
+        this.router.navigate(['home']).then(()=>
+        {
+          window.location.reload();
+        })
       }
       else{
         this.username="";

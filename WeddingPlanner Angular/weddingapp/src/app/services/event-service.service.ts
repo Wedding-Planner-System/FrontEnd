@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class EventServiceService {
-  baseUrl="http://localhost:8080/wed_planner/event";
+  baseUrl="http://localhost:8080/wed_planner/venue";
 
   constructor(public http:HttpClient) { }
   getAllVenue()

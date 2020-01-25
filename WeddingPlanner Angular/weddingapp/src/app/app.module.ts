@@ -18,18 +18,10 @@ import { VenueRegistrationComponent } from './venue-registration/venue-registrat
 import { AuthGuard } from './guards/auth.guard';
 import { NumbersOnlyDirective } from './Directives/numbers-only.directive';
 import { WordsOnlyDirective } from './Directives/words-only.directive';
-<<<<<<< HEAD
 import { VenueListtComponent } from './venue-listt/venue-listt.component';
 import { DateComponent } from './date/date.component';
 import { EventregisterComponent } from './eventregister/eventregister.component';
 
-=======
-import { AdminVenueListComponent } from './admin-venue-list/admin-venue-list.component';
-import { EventregisterComponent } from './eventregister/eventregister.component';
-import { VenueListtComponent } from './venue-listt/venue-listt.component';
-import { Eventregister } from './classes/eventregister';
-import { DateComponent } from './date/date.component';
->>>>>>> a35ab55bdb71a214c5f343bdeb616c940b610b8d
 
 
 
@@ -53,16 +45,9 @@ import { DateComponent } from './date/date.component';
     VenueRegistrationComponent,
     NumbersOnlyDirective,
     WordsOnlyDirective,
-<<<<<<< HEAD
     VenueListtComponent,
     DateComponent,
     EventregisterComponent
-=======
-    AdminVenueListComponent,
-    VenueListtComponent,
-    EventregisterComponent,
-    DateComponent
->>>>>>> a35ab55bdb71a214c5f343bdeb616c940b610b8d
     
     
   ],
@@ -75,6 +60,7 @@ import { DateComponent } from './date/date.component';
         {
           path:'',
           component:HomeComponent
+         
         },
         {
           path:'home',
@@ -88,7 +74,12 @@ import { DateComponent } from './date/date.component';
         },
         {
           path:'admin',
-          component:HomeComponent
+          component:AppComponent,
+          data:
+          {
+            isAdmin:true
+          }
+         
         },
         {
           path:'contactus',
@@ -116,7 +107,6 @@ import { DateComponent } from './date/date.component';
            canActivate : [AuthGuard] 
         },
         {
-<<<<<<< HEAD
           path:'eventregister',
           component:EventregisterComponent
         },
@@ -127,20 +117,6 @@ import { DateComponent } from './date/date.component';
         {
           path:'events',
           component:VenueListtComponent
-=======
-          path:'events',
-          component:VenueListtComponent
-      
-        },
-        {
-          path:'eventregister',
-          component:EventregisterComponent
-      
-        },
-        {
-          path:"date",
-          component:DateComponent
->>>>>>> a35ab55bdb71a214c5f343bdeb616c940b610b8d
         }
       ]
     )

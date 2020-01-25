@@ -10,7 +10,8 @@ export class Venue
         public capacity:string,
         public price:string,
         public extra:string,
-        public venueImage:Blob
+        public venueImage:string,
+        public imageName:string
         
         )
     {
