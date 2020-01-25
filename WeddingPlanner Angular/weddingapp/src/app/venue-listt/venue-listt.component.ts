@@ -12,22 +12,27 @@ export class VenueListtComponent implements OnInit {
 
   venueList:any=[];
   myData:any;
+  converted_image:any;
   constructor(public router:Router,public svc:EventServiceService) { }
 
   ngOnInit() {
     this.svc.getAllVenue().subscribe((res)=>
     {
-      this.venueList=res;
       
+      this.venueList=res;
+      if(this.venueList!=null)
+      {
       for(var i=0;i<this.venueList.length;i++)
       {
         var data:string;
         data=this.venueList[i].venueImage;
+        this.converted_image= "data:image/jpeg;base64,"+data;
         //console.log(data);
-        this.myData=data;
-       var myFile:Blob= this.dataURItoBlob(data);
+       // this.myData=data;
+       //var myFile:Blob= this.dataURItoBlob(data);
         
       }
+    }
     })
     
     

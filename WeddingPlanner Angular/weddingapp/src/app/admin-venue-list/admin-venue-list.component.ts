@@ -23,7 +23,7 @@ export class AdminVenueListComponent implements OnInit {
   }
   NavigateToNew()
   {
-      this.router.navigate(['venuereg']);
+      this.router.navigate(['venueregister']);
   }
 
   DeleteVenue(id)
