@@ -2,7 +2,7 @@
     <form #eventForm="ngForm" (ngSubmit)="SubmitDetails(eventForm.value)">
 
     <table align="center">
-        <caption style="caption-side: top;" align="center"><h2> Event Registration</h2></caption>
+        <caption style="caption-side: top;" align="center"><h2> Registeration Form</h2></caption>
     
         
         <tr>
@@ -26,10 +26,12 @@
     
        
         <tr>
+            
             <td align="right"><span class="glyphicon glyphicon-calendar"></span></td>
             <td colspan="2"><input type="date" name="fromDate" placeholder="From Date" class="form-control" ngModel required></td>
         </tr>
         <tr>
+            
             <td align="right"><span class="glyphicon glyphicon-calendar"></span></td>
             <td colspan="2"><input type="date" name="toDate" placeholder="To " class="form-control" ngModel required ></td>
         </tr>
