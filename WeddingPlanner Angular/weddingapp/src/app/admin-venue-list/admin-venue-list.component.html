@@ -1,0 +1,27 @@
+
+<div class="container" id="mainDiv">
+    <button class="btn btn-success" (click)="NavigateToNew()">Add New</button>
+    <table class="table table-bordered">
+        <tr id="header">
+            <th>Venue Name</th>
+            <th>Address</th>
+            <th>Capacity</th>
+            <th>Price</th>
+            <th>Extra</th>
+            <th>VenueImage</th>
+    
+        </tr>
+        <tr *ngFor="let Venue of venueList ">
+    
+            <td>{{Venue.venueName}}</td>
+            <td>{{Venue.address.area}},{{Venue.address.city}},{{Venue.address.state}},{{Venue.address.pinCode}}</td>
+            <td>{{Venue.capacity}}</td>
+            <td>{{Venue.price}}</td>
+            <td>{{Venue.extra}}</td>
+            <td>{{Venue.venueImage}}</td>
+            <td><a (click)="UpdateVenue(Vendor.vendorId)"><span class="glyphicon glyphicon-edit" ></span></a></td>
+            <td><a (click)="DeleteVenue(Vendor.vendorId)"><span class="glyphicon glyphicon-trash" ></span></a></td>
+    
+        </tr>
+    </table>
+    </div>
