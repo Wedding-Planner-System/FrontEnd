@@ -8,8 +8,8 @@ export class UserLoginService
 {
 
   loggedin=false;
-baseUrl="http://localhost:8080/wed_planner/user";
-testUrl="http://localhost:8080/wed_planner/venue"
+baseUrl="http://localhost:7070/wed_planner/user";
+testUrl="http://localhost:7070/wed_planner/venue"
 
 
   constructor(public http:HttpClient) { }
