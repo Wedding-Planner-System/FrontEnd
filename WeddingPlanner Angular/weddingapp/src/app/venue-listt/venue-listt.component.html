@@ -2,27 +2,25 @@
 <div class="container" id="maindiv"> 
     <form #eventsForm="ngForm" (ngSubmit)="SubmitDetails(eventForm.value)">
   <table align="center">
-      <tr *ngFor="let Venue of venueList ">
+      <tr>
 
-        <td></td>
-          <td><div class="card" style="width: 18rem;">
+        
+          <td *ngFor="let Venue of venueList"><div class="card" style="width: 18rem;">
             
               <img src="../../assets/images/bg.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title" style="color:red;font-style:initial;" >Venue Name :{{Venue.venueName}}</h5>
+                <h5 class="card-title" style="color:red;font-style:initial;">Venue Name :{{Venue.venueName}}</h5>
       
                 <h6  style="color:red;font-style:initial;">Capacity :{{Venue.capacity}}</h6>
                 <h6  style="color:red; font-style:initial;"> Booking Price :{{Venue.price}}</h6>
-                <h6 style="color:red;font-style:initial;">Address : {{Venue.Address.area}},{{Venue.Address.city}},{{Venue.Address.state}},{{Venue.Address.pinCode}}</h6>
-                <p class="card-text"></p>
+                <h6 style="color:red;font-style:initial;">Address : {{Venue.address}}</h6>
+
                 <a (click)="NavigateToDate()" class="btn btn-primary" >Book</a>
               </div>
-            </div></td>
-
-            <td></td>
-            
-            
-      </tr>
+            </div>
+           
+          </td>
+        </tr>
   </table>
   </form>
   </div>

@@ -20,10 +20,8 @@ export class VenueListtComponent implements OnInit {
   ngOnInit() {
     this.svc.getAllVenue().subscribe((res)=>
     {
-      
       this.venueList=res;
       this.str=JSON.stringify(res);
-      
     })
     
     
