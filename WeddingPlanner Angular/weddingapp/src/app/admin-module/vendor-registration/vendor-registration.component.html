@@ -1,0 +1,270 @@
+<!--
+    purpose: Vendor registration form
+    author: Hitesh K
+    Date: 19-Jan-2020
+-->
+
+
+
+
+
+
+
+
+
+    <div class="container" style="margin-bottom: 30px; margin-top: 30px;">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+               
+                <form [formGroup]="vendorForm" (ngSubmit)="onSubmit()" style="height: 100%;">
+
+                    <div  id="title" class="form-row" style="margin-top: 20px; margin-bottom: 20px;" >
+                       <h2 > Vendor Registration</h2>
+                    </div> 
+                   
+                    <div class="form-row" hidden>
+                        <div class="form-group col-2" style="text-align: right;">
+                           
+                        </div>
+                    <div  class="form-group col-5">
+                        
+                        <input type="text" placeholder="Vendor Id" formControlName="vendorId" class="form-control" />
+                        
+                    </div>
+                    
+                    <div  class="form-group col-5">
+                        
+                    </div>
+                    </div> 
+                    <div class="form-row">
+                        <div class="form-group col-2" style="text-align: right;">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </div>
+                    <div class="form-group col-5">
+                        
+                        <input type="text" placeholder="First Name" (keydown)="validateInput($event)" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                        </div>
+                    </div>
+                   
+                    <div class="form-group col-5">
+                        
+                        <input type="text" placeholder="Last Name" (keydown)="validateInput($event)" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-2" style="text-align: right;">
+                        <span class="glyphicon glyphicon-envelope"></span>
+                    </div>
+                <div class="form-group col-5">
+                    
+                    <input type="text" placeholder="Email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+                </div>
+               
+                <div class="form-group col-5">
+                   
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-2" style="text-align: right;">
+                    <span class="glyphicon glyphicon-earphone"></span>
+                </div>
+            <div class="form-group col-5">
+                
+                <input type="text" maxlength="10" minlength="10"  placeholder="Contact No" formControlName="contactNo" (keydown)="validateNumber($event)"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contactNo.errors }" />
+                <div *ngIf="submitted && f.contactNo.errors" class="invalid-feedback">
+                    <div *ngIf="f.contactNo.errors.required">Contact Number is required</div>
+                    <div *ngIf="f.contactNo.errors.minlength">Contact Number should be 10 digits</div>
+                   
+                </div>
+            </div>
+           
+            <div class="form-group col-5">
+               
+            </div>
+        </div>
+
+        <div formGroupName="address" >
+            <div class="form-row">
+            <div class="form-group col-2" style="text-align: right;">
+                <span class="glyphicon glyphicon-map-marker"></span>
+            </div>
+        <div  class="form-group col-5">
+            
+            <input type="text" placeholder="Area" formControlName="area" (keydown)="validateInput($event)" class="form-control" [ngClass]="{ 'is-invalid': submitted && vendorForm.get('address.area').errors }" />
+            <div *ngIf="submitted && vendorForm.get('address.area').errors" class="invalid-feedback">
+                <div *ngIf="vendorForm.get('address.area').errors.required">Area is required</div>
+            </div>
+        </div>
+       
+        <div  class="form-group col-5">
+            
+            <input type="text" placeholder="Street" (keydown)="validateInput($event)" formControlName="street" class="form-control" [ngClass]="{ 'is-invalid': submitted && vendorForm.get('address.street').errors }" />
+            <div *ngIf="submitted && vendorForm.get('address.street').errors" class="invalid-feedback">
+                <div *ngIf="vendorForm.get('address.street').errors.required">Street is required</div>
+            </div>
+        </div>
+    </div> 
+    </div>
+
+    <div formGroupName="address" >
+        <div class="form-row">
+        <div class="form-group col-2" style="text-align: right;">
+           
+        </div>
+    <div  class="form-group col-5">
+        
+        <input type="text" placeholder="City" (keydown)="validateInput($event)" formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && vendorForm.get('address.city').errors }" />
+        <div *ngIf="submitted && vendorForm.get('address.city').errors" class="invalid-feedback">
+            <div *ngIf="vendorForm.get('address.city').errors.required">City is required</div>
+        </div>
+    </div>
+   
+    <div  class="form-group col-5">
+        
+        <input type="text" placeholder="State" (keydown)="validateInput($event)" formControlName="state" class="form-control" [ngClass]="{ 'is-invalid': submitted && vendorForm.get('address.state').errors }" />
+        <div *ngIf="submitted && vendorForm.get('address.state').errors" class="invalid-feedback">
+            <div *ngIf="vendorForm.get('address.state').errors.required">State is required</div>
+        </div>
+    </div>
+</div> 
+</div>
+
+   
+   
+   
+            
+<div formGroupName="address" >
+    <div class="form-row">
+    <div class="form-group col-2" style="text-align: right;">
+       
+    </div>
+<div  class="form-group col-5">
+    
+    <input type="text" placeholder="Pin Code" formControlName="pinCode" minlength="6" maxlength="6" class="form-control" (keydown)="validateNumber($event)" [ngClass]="{ 'is-invalid': submitted && vendorForm.get('address.pinCode').errors }" />
+    <div *ngIf="submitted && vendorForm.get('address.pinCode').errors" class="invalid-feedback">
+        <div *ngIf="vendorForm.get('address.pinCode').errors.required">Pin Code is required</div>
+        <div *ngIf="vendorForm.get('address.pinCode').errors.minlength">Pin Code should be 6 digits</div>
+       
+    </div>
+</div>
+
+<div  class="form-group col-5">
+    
+</div>
+</div> 
+</div>
+
+<div class="form-row">
+    <div class="form-group col-2" style="text-align: right;">
+        <span class="glyphicon glyphicon-briefcase"></span>
+    </div>
+<div  class="form-group col-5">
+    
+    <select formControlName="serviceType" class="form-control"  style="height: 30px;" [ngClass]="{ 'is-invalid': submitted && vendorForm.get('serviceType').errors }"  >
+        <option value="Select"> Select Service</option>
+        <option value="Catering"> Catering</option>
+        <option value="Venue"> Venue</option>
+        <option value="Decoration"> Decoration</option>
+    </select>
+ 
+    <div *ngIf="submitted && vendorForm.get('serviceType').errors" class="invalid-feedback">
+        <div *ngIf="vendorForm.get('serviceType').errors.required">Please select service</div>
+    </div>
+</div>
+
+<div  class="form-group col-5">
+    
+</div>
+</div> 
+
+
+      
+
+        <div class="text-center">
+            <button class="btn btn-primary mr-1">Register</button>
+            <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+        </div>
+                  
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+<!-- 
+<div class="container">
+    <form  ngNativeValidate [formGroup]="vendorForm" (ngSubmit)='onSubmit()'>
+       
+    <table align="center">
+        {{error}}
+        <caption style="caption-side: top;" align="center"><h2> Vendor Registration</h2></caption>
+        <tr>
+            <td ></td>
+            <td ><input type="text" formControlName="vendorId" placeholder="VendorId" class="form-control"   hidden ></td>
+            <td ></td>
+        </tr>
+        <tr>
+            <td align="right"><span class="glyphicon glyphicon-user"></span></td>
+            <td ><input type="text" appWordsOnly  formControlName="firstName"  placeholder="First Name" class="form-control" required  ></td>
+            <td ><input type="text" appWordsOnly formControlName="lastName" placeholder="Last Name" class="form-control" required ></td>
+        </tr>
+        <tr >
+            <td align="right"><span class="glyphicon glyphicon-envelope"></span></td>
+            <td><input type="email" formControlName="email" placeholder="Email" class="form-control" required ></td>
+
+        </tr>
+    
+        <tr>
+            <td align="right"><span class="glyphicon glyphicon-earphone"></span></td>
+            <td><input type="text" appNumbersOnly  minlength="10" maxlength="10" formControlName="contactNo" placeholder="Contact No" class="form-control"  required ngModel></td>
+        </tr>
+        <tr formGroupName="address" >
+            <td align="right"><span class="glyphicon glyphicon-map-marker"></span></td>
+            <td><input type="text"   formControlName="area" placeholder="Area" class="form-control" appWordsOnly  required ></td>
+            <td><input type="text" appWordsOnly formControlName="street" placeholder="Street" class="form-control"  required ></td>
+        </tr>
+    
+        <tr formGroupName="address">
+            <td></td>
+            <td><input type="text" appWordsOnly formControlName="city" placeholder="City" class="form-control"  required ></td>
+            <td><input type="text" appWordsOnly formControlName="state" placeholder="State" class="form-control"  required ></td>
+        </tr>
+    
+        <tr formGroupName="address">
+            <td></td>
+            <td><input type="text" appNumbersOnly minlength="6" maxlength="6" formControlName="pinCode" placeholder="Pin Code" class="form-control"  required ></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td align="right"><span class="glyphicon glyphicon-briefcase"></span></td>
+            <td><select formControlName="serviceType" class="form-control"  style="height: 30px;" required >
+                <option value="Select"> Select Service</option>
+                <option value="Catering"> Catering</option>
+                <option value="Venue"> Venue</option>
+                <option value="Decoration"> Decoration</option>
+            </select></td>
+            <td></td>
+        </tr>
+      
+        <tr>
+            <td></td>
+            <td align="right" ><button class="btn btn-primary" type="submit" >Register</button></td>
+            <td align="left"><button class="btn btn-success" type="reset" >Reset</button></td>
+        </tr>
+         </table>
+        </form>
+</div> -->
+        

@@ -1,0 +1,146 @@
+
+<div class="container" style="margin-bottom: 30px; margin-top: 30px;">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+
+            <form [formGroup]="packageForm" (ngSubmit)="onSubmit()" style="height: 100%;">
+
+                <div id="title" class="form-row" style="margin-top: 20px; margin-bottom: 20px;">
+                    <h2> Add Packages</h2>
+                </div>
+
+                <div class="form-row" hidden>
+                    <div class="form-group col-2" style="text-align: right;">
+                    </div>
+                    <div class="form-group col-5">
+                        <input type="text" placeholder="Package Id" formControlName="packageId" class="form-control" />
+                    </div>
+
+                    <div class="form-group col-5">
+                    </div>
+                </div>
+
+                <div class="form-row" >
+                    <div class="form-group col-2" style="text-align: right;">
+                       <label>Package Type</label>
+                    </div>
+                    <div class="form-group col-5"> <!--tempory -->
+                       <label formControlName="packageType">Decoration</label>
+                    </div>
+
+                    <div class="form-group col-5">
+                    </div>
+                </div>
+
+
+                <div class="form-row" >
+                    <div class="form-group col-2" style="text-align: right;">
+                       <label>Vendor</label>
+                    </div>
+                    <div class="form-group col-5"> <!--tempory -->
+                        <select class="form-control" formControlName="vendorId" >
+                            <option>Select Vendor</option>
+                            <option>1</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-5">
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group col-2" style="text-align: right;">
+                        <label> Package Name</label>
+
+                    </div>
+                    <div class="form-group col-5">
+                        <input type="text" placeholder="Package Name" (keydown)="validateInput($event)"
+                            formControlName="packageName" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && packageForm.get('packageName').errors }" />
+                        <div *ngIf="submitted && packageForm.get('packageName').errors" class="invalid-feedback">
+                            <div *ngIf="packageForm.get('packageName').errors.required">Venue Name is required</div>
+                        </div>
+                    </div>
+                </div>
+                    
+
+               
+
+             
+
+              
+            
+
+                <div class="form-row">
+                        <div class="form-group col-2" style="text-align: right;">
+                           <label>Price</label>
+                        </div>
+                        <div class="form-group col-5">
+
+                            <input type="text" placeholder="Price" formControlName="price"
+                                (keydown)="validateNumber($event)" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && packageForm.get('price').errors }" />
+                            <div *ngIf="submitted && packageForm.get('price').errors" class="invalid-feedback">
+                                <div *ngIf="packageForm.get('price').errors.required">Price is required</div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-5">
+                        </div>
+                 </div>
+
+                <div class="form-row">
+                        <div class="form-group col-2" style="text-align: right;">
+                          <label>Extra</label>
+                        </div>
+                        <div class="form-group col-5">
+                            <div>
+                                <textarea rows="5" placeholder="Extra" formControlName="extra"
+                                     class="form-control" ></textarea>
+                            </div>
+                        </div>
+
+                       
+                        <div class="form-group col-5">
+                        </div>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group col-2" style="text-align: right;">
+                        <label>Image</label>
+                    </div>
+                    
+                        <div class="form-group col-5">
+                            <input (change)="onSelectFile($event)" style="border: none" type="file"
+                                class="form-control">
+                        </div>
+                    
+
+                   
+                    <div class="form-group col-5">
+                    </div>
+            </div>
+               
+
+                <div class="text-center">
+                        <button class="btn btn-primary mr-1" type="submit">Save</button>
+                        <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                 </div>
+             
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

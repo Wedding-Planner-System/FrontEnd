@@ -1,0 +1,22 @@
+#mainDiv{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#header
+{
+    background-color: dodgerblue;
+}
+
+table th
+{
+    text-align: center;
+}
+
+table td
+{
+    text-align: center;
+}
+table{
+    margin-top: 15px;
+}

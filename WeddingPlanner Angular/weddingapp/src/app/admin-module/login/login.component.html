@@ -1,0 +1,20 @@
+<div class=" w3l-login-form" id="login">
+    <h2>Login Here</h2>
+    <form action="#" method="POST" ngNativeValidate>
+        <div class=" w3l-form-group">
+            <div class="group">
+                <i class="fas fa-user"></i>
+                <input type="text" class="form-control" placeholder="Username" name="username" required="required" [(ngModel)]="username"  />
+            </div>
+        </div>
+        <div class=" w3l-form-group">
+            <div class="group">
+                <i class="fas fa-unlock"></i>
+                <input type="password" class="form-control" placeholder="Password"  name="password" required="required" [(ngModel)]="password"  />
+            </div>
+        </div>
+        <button type="submit" (click)="validateUser()">Login</button>
+
+       <div  class=" w3l-form-group"style="color:red;font-weight:bold">{{error}}</div> 
+    </form>
+</div>

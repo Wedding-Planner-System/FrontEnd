@@ -1,0 +1,24 @@
+
+<div class="container" id="mainDiv">   
+    <button class="btn btn-success" (click)="NavigateToNew()">Add New</button>
+    <table class="table table-bordered">
+        <tr id="header">
+            <th> Package Name</th>
+            <th> Price</th>
+            <th>Extra</th>
+            <th>Image</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr *ngFor="let Package of packageList ">
+    
+            <td>{{Package.packageName}}</td>
+            <td>{{Package.price}}</td>
+            <td>{{Package.extra}}</td>
+            <td><img src="data:image/jpg;base64,{{Package.packageImage}}"  alt="..." /></td>
+            <td>{{Vendor.serviceType}}</td>
+            <td><a (click)="UpdatePackage(Package.packageId)"><span class="glyphicon glyphicon-edit" ></span></a></td>
+            <td><a (click)="DeletePackage(Package.packageId)"><span class="glyphicon glyphicon-trash" ></span></a></td>
+        </tr>
+    </table>
+    </div>
