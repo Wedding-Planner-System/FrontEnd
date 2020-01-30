@@ -1,0 +1,39 @@
+<div class="banner">
+<header>	
+  <nav class="mnu navbar-light">
+        <div class="logo" id="logo">
+            <h1><a routerLink='/admin'>Fantazy</a></h1>
+        </div>
+    <label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+        <input type="checkbox" id="drop">
+        <ul class="menu">
+         <li class="active"><a routerLink='/admin'>Home</a></li>
+        <li><a routerLink='/about'>About</a></li>
+        <li><a routerLink='/gallary'>Gallery</a> </li>                      
+        <li><a routerLink='/contact'>Contact Us</a></li>
+        <li ><a *ngIf="!svc.loggedin" routerLinkActive="active" routerLink='/login'>Login</a></li>
+        <li ><a routerLink='/vendorlist'  routerLinkActive="active"  *ngIf="svc.loggedin">Vendor </a></li>
+        <li ><a routerLink='/venuelist'  routerLinkActive="active" *ngIf="svc.loggedin">Venue </a></li>
+
+        <li class="dropdown"><a class="dropdown-toggle text-white" *ngIf="svc.loggedin" data-toggle="dropdown" >Packages</a>
+            <ul class="dropdown-menu bg-transparent text-white">
+              <li><a  class="text-white" routerLink='packages'  >Decoration</a></li>
+              <li><a class="text-white" routerLink='packages' >Catering</a></li>
+             
+            </ul>
+          </li>
+        <li ><a routerLink='/logout'   routerLinkActive="active" *ngIf="svc.loggedin" (click)="Logout()">Logout </a></li>
+                </ul>
+  </nav>
+  </header>
+ 
+    <div class="container">
+        <div class="banner-text">
+            <div class="slider-info">
+                <h3>Destination Weddings</h3>
+                <a routerLink='/about' class="banner-button btn mt-md-5 mt-4">Know More</a>
+            </div>
+        </div>
+    </div>
+</div>
+

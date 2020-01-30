@@ -1,0 +1,24 @@
+<div class="container" id="maindiv">
+<div class="row">
+  <div *ngFor="let Venue of venueList" class="col-lg-4 col-md-6 card" id="padId">
+    <img src="data:image/jpg;base64,{{Venue.venueImage}}" class="card-img-top" alt="...">
+    <div class="card-body" >
+      <h3 class="card-title" style="font-size: 20px; font-weight: bold;"> {{Venue.venueName}}</h3>
+      <h5><span style="font-size:13px;font-weight: bold;">Capacity :</span>{{Venue.capacity}}</h5>
+      <h5> <span style="font-size:13px;font-weight: bold;">Booking Price :</span>{{Venue.price}}</h5>
+      <h5><span style="font-size:13px;font-weight: bold;">Address :</span> {{Venue.address.area}},{{Venue.address.city}},{{Venue.address.state}},{{Venue.address.pinCode}}</h5>
+      <h5><span style="font-size:13px;font-weight: bold;">Extras : </span>{{Venue.extra}}</h5>
+      <p class="card-text"></p>
+      <button (click)="NavigateToDate(Venue.venueId)" class="btn btn-primary" >Book</button>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+ 

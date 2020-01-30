@@ -1,0 +1,56 @@
+<div class="container">
+    <form ngNativeValidate #eventForm="ngForm" (ngSubmit)="SubmitDetails(eventForm.value)">
+
+    <table align="center">
+        <caption style="caption-side: top;" align="center"><h2> Registeration Form</h2></caption>
+    
+        
+        <tr>
+            <td align="right"><span class="glyphicon glyphicon-user"></span></td>
+            <td><input type="text" appWordsOnly name="userFirstName" placeholder="First Name" class="form-control" ngModel required  ></td>
+            <td><input type="text" appWordsOnly name="userLastName" placeholder="Last Name" class="form-control" ngModel required ></td>
+        </tr>
+        <tr >
+            <td align="right"><span class="glyphicon glyphicon-envelope"></span></td>
+            <td colspan="2"><input type="text" name="userEmail" placeholder="Enter Email" class="form-control" ngModel required></td>
+            
+        </tr>
+    
+        
+    
+        <tr>
+            <td align="right"><span class="glyphicon glyphicon-earphone"></span></td>
+            <td><input type="text" appNumbersOnly  minlength="10" maxlength="10" name="userContactNumber" placeholder="Enter Contact Number" class="form-control" ngModel required></td>
+            <td></td>
+        </tr>
+    
+       
+        <tr>
+            
+            <td align="right"><span class="glyphicon glyphicon-calendar"></span></td>
+            <td colspan="2"><input type="date" name="fromDate" placeholder="From Date" class="form-control" ngModel required></td>
+        </tr>
+        <tr>
+            
+            <td align="right"><span class="glyphicon glyphicon-calendar"></span></td>
+            <td colspan="2"><input type="date" name="toDate" placeholder="To " class="form-control" ngModel required ></td>
+        </tr>
+        
+       
+       
+          
+        <tr>
+            <td></td>
+            <td align="right" ><button class="btn btn-primary">Register</button></td>
+            <td align="left"><button class="btn btn-success" >Reset</button></td>
+           
+        </tr>
+        
+        
+       
+            
+        </table>
+        </form>
+        
+    </div>
+        

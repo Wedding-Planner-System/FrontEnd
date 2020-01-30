@@ -8,8 +8,8 @@ export class UserLoginService
 {
 
   loggedin=false;
-baseUrl="http://localhost:8080/wed_planner/user";
-testUrl="http://localhost:8080/wed_planner/venue"
+baseUrl="http://localhost:7070/wed_planner/user";
+
 
 
   constructor(public http:HttpClient) { }
@@ -23,18 +23,5 @@ testUrl="http://localhost:8080/wed_planner/venue"
     return this.http.post(this.baseUrl,formData,{responseType:'text'});
   }
 
-  saveVenuedetails(venueData,img)
-  {
-    
-
-   
-    // const test1=JSON.stringify(venueData);
-    // alert(test1);
-    // const formData = new FormData();
-    // formData.append('venue', venueData);
-    // formData.append('image', img);
-    return this.http.post(this.testUrl, venueData);
-    
-
-  }
+  
 }

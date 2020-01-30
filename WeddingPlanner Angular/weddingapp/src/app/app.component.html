@@ -1,5 +1,6 @@
 
-<app-header></app-header>
+<app-admin-header   *ngIf="routeHidden" ></app-admin-header>
+<app-header *ngIf="!routeHidden" ></app-header >
 <router-outlet></router-outlet>
 <app-footer></app-footer>
 
