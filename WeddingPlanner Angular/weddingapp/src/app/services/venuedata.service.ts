@@ -24,10 +24,11 @@ export class VenuedataService {
        formData.append('image', img);
       return this.http.post(this.baseUrl, formData);
     }
-    updateVenueDetails(venueData)
+    updateVenueDetails(venueData,img)
     {
     const formData=new FormData();
     formData.append('venue',venueData);
+    
     return this.http.put(`${this.baseUrl}${venueData.venueId}`,venueData); 
     }
     //to call get all venue details api
@@ -46,4 +47,6 @@ export class VenuedataService {
   {
     return this.http.get(this.baseUrl+id);
   }
+
+  
 }

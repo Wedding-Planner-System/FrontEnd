@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserLoginService } from 'src/app/services/user-login.service';
+import { CommonTypeService } from 'src/app/services/common-type.service';
 
 @Component({
   selector: 'app-admin-header',
@@ -9,7 +10,7 @@ import { UserLoginService } from 'src/app/services/user-login.service';
 })
 export class AdminHeaderComponent implements OnInit {
   
-  constructor(public svc: UserLoginService,public router:Router) 
+  constructor(public svc: UserLoginService,public router:Router,public svc1:CommonTypeService) 
   {}
 
 
@@ -29,6 +30,22 @@ export class AdminHeaderComponent implements OnInit {
     this.svc.loggedin=false;
     this.router.navigate(['login']);
     }
+  }
+  showVendorList()
+  {
+    this.svc1.type="";
+    this.router.navigate(['vendorlist'])
+  }
+  showDecorationList()
+  {
+    this.svc1.type="Decoration";
+    this.router.navigate(['packages'])
+  }
+  showCateringList()
+  {
+    
+    this.svc1.type="Catering";
+    this.router.navigate(['packages'])
   }
 
 }

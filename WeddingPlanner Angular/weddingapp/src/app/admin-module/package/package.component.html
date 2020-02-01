@@ -1,5 +1,5 @@
 
-<div class="container" style="margin-bottom: 30px; margin-top: 30px;">
+<div class="container" id="mainDiv" style="margin-bottom: 30px; margin-top: 30px;">
     <div class="row">
         <div class="col-md-6 offset-md-3">
 
@@ -25,7 +25,9 @@
                        <label>Package Type</label>
                     </div>
                     <div class="form-group col-5"> <!--tempory -->
-                       <label formControlName="packageType">Decoration</label>
+                      
+                       <input id="packageType" type="text" value="{{packageType}}" formControlName="packageType" class="form-control" readonly> 
+                       
                     </div>
 
                     <div class="form-group col-5">
@@ -39,8 +41,10 @@
                     </div>
                     <div class="form-group col-5"> <!--tempory -->
                         <select class="form-control" formControlName="vendorId" >
-                            <option>Select Vendor</option>
-                            <option>1</option>
+                            <option value="">Select Vendor</option>
+                            <option *ngFor="let Vendor of vendorList" [value]="Vendor.vendorId">
+                                {{Vendor.firstName}} {{Vendor.lastName}}
+                              </option>
                         </select>
                     </div>
 
@@ -114,7 +118,7 @@
                     
                         <div class="form-group col-5">
                             <input (change)="onSelectFile($event)" style="border: none" type="file"
-                                class="form-control">
+                                class="form-control" >
                         </div>
                     
 

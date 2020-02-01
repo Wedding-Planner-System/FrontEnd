@@ -7,16 +7,13 @@ export class Eventregister {
             public userLastName :string,
             public userEmail :String,
             public userContactNumber :string,
-            public createdDate :Date,
-            public fromDate :Date,
-            public toDate :Date,
+            public createdDate :string,
+            public serviceType: String,
             public serviceId : Number,
-            public paymentStatus : String,
             public amount : Number,
             public eventStatus :String,
-            public lastModifiedDate: Date,
-            public status :string,
-            
+            public lastModifiedDate: Date
+        
         
         
         )

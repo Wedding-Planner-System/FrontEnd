@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { EventregisterService } from 'src/app/services/eventregister.service';
+import { CommonTypeService } from 'src/app/services/common-type.service';
 
 @Component({
   selector: 'app-date',
@@ -8,8 +10,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class DateComponent implements OnInit {
 
-  venueId:any;
-  constructor(public router:Router,public route:ActivatedRoute) { }
+  serviceId:any;
+  selectedDate:any;
+  constructor(public router:Router,public route:ActivatedRoute,public svc:EventregisterService,public svc1:CommonTypeService) { }
 
   ngOnInit() {
 
@@ -17,7 +20,7 @@ export class DateComponent implements OnInit {
       const id=+params.get('id');
       if(id)
       {
-        this.venueId=id;
+        this.serviceId=id;
       }
     })
 
@@ -25,6 +28,15 @@ export class DateComponent implements OnInit {
 
   NavigateToEventRegister()
   {
+
+    
+    // this.svc.checkForExistEvent(this.selectedDate).subscribe((res)=>
+    // {
+    //   alert(res);
+    // })
+    
+    this.svc.dt=this.selectedDate;
+    this.svc.serviceId=this.serviceId;
     this.router.navigate(['eventregister']);
   }
 }

@@ -15,8 +15,7 @@
             <td>{{Package.packageName}}</td>
             <td>{{Package.price}}</td>
             <td>{{Package.extra}}</td>
-            <td><img src="data:image/jpg;base64,{{Package.packageImage}}"  alt="..." /></td>
-            <td>{{Vendor.serviceType}}</td>
+            <td><img src="data:image/jpg;base64,{{Package.packageImage}}"  alt="..." height="50px" width="50px" /></td>
             <td><a (click)="UpdatePackage(Package.packageId)"><span class="glyphicon glyphicon-edit" ></span></a></td>
             <td><a (click)="DeletePackage(Package.packageId)"><span class="glyphicon glyphicon-trash" ></span></a></td>
         </tr>

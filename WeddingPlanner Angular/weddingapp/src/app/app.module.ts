@@ -30,7 +30,7 @@ import { AHomeComponent } from './admin-module/ahome/ahome.component';
 import { VenueRegistrationComponent } from './admin-module/venue-registration/venue-registration.component';
 import { PackagelistComponent } from './admin-module/packagelist/packagelist.component';
 import { PackageComponent } from './admin-module/package/package.component';
-
+import { UserpackagelistComponent} from './user-module/userpackagelist/userpackagelist.component';
 
 
 
@@ -62,7 +62,8 @@ import { PackageComponent } from './admin-module/package/package.component';
     AHomeComponent,
     VenueRegistrationComponent,
     PackagelistComponent,
-    PackageComponent
+    PackageComponent,
+    UserpackagelistComponent
 
 
 
@@ -154,7 +155,15 @@ import { PackageComponent } from './admin-module/package/package.component';
     {
       path:'editPackage/:id',
       component:PackageComponent
-  }
+  },
+  {
+   path:"userpackagelist",
+   component:UserpackagelistComponent 
+  },
+  {
+    path:"eventregister",
+    component:EventregisterComponent 
+   }
     ]
 
     )

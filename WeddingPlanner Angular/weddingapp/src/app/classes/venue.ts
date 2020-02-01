@@ -1,4 +1,5 @@
 import { Address } from './address';
+import { Vendor } from './vendor';
 
 export class Venue
 {
@@ -10,7 +11,8 @@ export class Venue
         public capacity:string,
         public price:string,
         public extra:string,
-        public venueImage:string  
+        public venueImage:string,
+        public imageName:string
         )
     {
 

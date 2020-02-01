@@ -21,12 +21,14 @@
 
                 <div class="form-row" >
                     <div class="form-group col-2" style="text-align: right;">
-                        <span class="glyphicon glyphicon-user"></span>
+                        <!-- <span class="glyphicon glyphicon-user"></span> -->
                     </div>
                     <div class="form-group col-5"> <!--tempory -->
                         <select class="form-control" formControlName="vendorId" >
-                            <option>Select Vendor</option>
-                            <option>1</option>
+                            <option value="">Select Vendor</option>
+                            <option *ngFor="let Vendor of vendorList" [value]="Vendor.vendorId">
+                                {{Vendor.firstName}} {{Vendor.lastName}}
+                              </option>
                         </select>
                     </div>
 
@@ -37,7 +39,7 @@
 
                 <div class="form-row">
                     <div class="form-group col-2" style="text-align: right;">
-                        <span class="glyphicon glyphicon-user"></span>
+                        <!-- <span class="glyphicon glyphicon-user"></span> -->
                     </div>
                     <div class="form-group col-5">
                         <input type="text" placeholder="Venue Name" (keydown)="validateInput($event)"
@@ -53,7 +55,7 @@
                 <div formGroupName="address">
                         <div class="form-row">
                             <div class="form-group col-2" style="text-align: right;">
-                                <span class="glyphicon glyphicon-map-marker"></span>
+                                <!-- <span class="glyphicon glyphicon-map-marker"></span> -->
                             </div>
                             <div class="form-group col-5">
                                 <input type="text" placeholder="Area" formControlName="area"
@@ -133,7 +135,7 @@
 
                 <div class="form-row">
                         <div class="form-group col-2" style="text-align: right;">
-                            <span class="glyphicon glyphicon-envelope"></span>
+                            <!-- <span class="glyphicon glyphicon-envelope"></span> -->
                         </div>
                         <div class="form-group col-5">
 
@@ -152,7 +154,7 @@
 
                 <div class="form-row">
                         <div class="form-group col-2" style="text-align: right;">
-                            <span class="glyphicon glyphicon-earphone"></span>
+                            <!-- <span class="glyphicon glyphicon-earphone"></span> -->
                         </div>
                         <div class="form-group col-5">
 
@@ -170,7 +172,7 @@
 
                 <div class="form-row">
                         <div class="form-group col-2" style="text-align: right;">
-                            <span class="glyphicon glyphicon-briefcase"></span>
+                            <!-- <span class="glyphicon glyphicon-briefcase"></span> -->
                         </div>
                         <div class="form-group col-5">
                             <div>
@@ -187,11 +189,11 @@
 
                 <div class="form-row">
                     <div class="form-group col-2" style="text-align: right;">
-                        <span class="glyphicon glyphicon-briefcase"></span>
+                        <!-- <span class="glyphicon glyphicon-briefcase"></span> -->
                     </div>
                     
                         <div class="form-group col-5">
-                            <input (change)="onSelectFile($event)" style="border: none" type="file"
+                            <input (change)="onSelectFile($event)" formControlName="imageName" style="border: none" type="file"
                                 class="form-control">
                         </div>
                     
@@ -203,7 +205,7 @@
                
 
                 <div class="text-center">
-                        <button class="btn btn-primary mr-1">Register</button>
+                        <button class="btn btn-primary mr-1" type="submit">Save</button>
                         <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
                  </div>
              
@@ -227,62 +229,3 @@
 
 
 
-<!-- <div class="container">
-    <form  ngNativeValidate [formGroup]="venueForm" (ngSubmit)='onSubmit()'>      
-<table align="center">
-    {{error}}
-    <caption style="caption-side: top;" align="center"><h2> Venue Registration</h2></caption>
-    <tr >
-        <td align="right"><span class="glyphicon glyphicon-user"></span></td>
-        <td colspan="2">
-        <input type="text" formControlName="venueId" placeholder="VenueId" class="form-control"   hidden >
-            
-        </td>
-    </tr>
-    <tr>
-        <td align="right"><span class="glyphicon glyphicon-map-marker"></span></td>
-        <td colspan="2"><input type="text" appWordsOnly formControlName="venueName" placeholder="Name of the Venue" class="form-control" required ></td>
-    </tr>
-    <tr formGroupName="address" >
-        <td align="right"><span class="glyphicon glyphicon-map-marker"></span></td>
-        <td><input type="text"   formControlName="area" placeholder="Area" class="form-control" appWordsOnly  required ></td>
-        <td><input type="text" appWordsOnly formControlName="street" placeholder="Street" class="form-control"  required ></td>
-    </tr>
-
-    <tr formGroupName="address">
-        <td></td>
-        <td><input type="text" appWordsOnly formControlName="city" placeholder="City" class="form-control"  required ></td>
-        <td><input type="text" appWordsOnly formControlName="state" placeholder="State" class="form-control"  required ></td>
-    </tr>
-
-    <tr formGroupName="address">
-        <td></td>
-        <td><input type="text" appNumbersOnly minlength="6" maxlength="6" formControlName="pinCode" placeholder="Pin Code" class="form-control"  required ></td>
-        <td></td>
-    </tr>
-
-    <tr>
-        <td align="right"><span class="glyphicon glyphicon-user"></span></td>
-        <td colspan="2"><input type="number" appNumbersOnly formControlName="capacity" placeholder="Capacity" class="form-control"  required></td>
-     </tr>
-    <tr>
-        <td align="right"><span class="glyphicon glyphicon-user"></span></td>
-        <td colspan="2"><input type="number" formControlName="price" appNumbersOnly name="price" placeholder="Price" class="form-control"  required ></td>
-    </tr>
-    <tr>
-        <td align="right"><span class="glyphicon glyphicon-user"></span></td>
-        <td colspan="2"><input type="text" formControlName="extra" placeholder="extra Info" class="form-control" required></td>
-    </tr>
-    <tr>
-        <td align="right"><span class="glyphicon glyphicon-user"></span></td>
-        <td colspan="2"> <input (change)="onSelectFile($event)" style="border: none"  type="file" class="form-control"></td>
-    </tr>      
-    <tr>
-        <td></td>
-        <td align="right" ><button class="btn btn-primary" type="submit">Register</button></td>
-        <td align="left"><button class="btn btn-success" type="reset">Reset</button></td>
-    </tr>     
-    </table>
-</form> 
-</div>
-     -->

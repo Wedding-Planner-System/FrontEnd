@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EventServiceService } from 'src/app/services/event-service.service';
+import { VenuedataService } from 'src/app/services/venuedata.service';
+import { CommonTypeService } from 'src/app/services/common-type.service';
 
 
 @Component({
@@ -13,7 +15,7 @@ export class AdminVenueListComponent implements OnInit {
   str:any;
   adminVenueList:any=[];
   theVenue:any;
-  constructor(public svc:EventServiceService,public router:Router) { }
+  constructor(public svc:VenuedataService,public router:Router,public svc1 : CommonTypeService) { }
 
   ngOnInit() {
     this.svc.getAllVenue().subscribe((res)=>
@@ -25,13 +27,17 @@ export class AdminVenueListComponent implements OnInit {
   }
   NavigateToNew()
   {
-      this.router.navigate(['venueregister']);
+
+   this.svc1.type="Venue";
+    this.router.navigate(['venueregister']);
   }
 
   DeleteVenue(id)
   {
+  //  alert("hello")
     this.svc.deleteVenueById(id).subscribe((res)=>
     {
+      
       if(res!=null)
       {
       alert("Record deleted Successfully");

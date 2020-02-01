@@ -33,7 +33,7 @@ export class VenueListtComponent implements OnInit {
 
   NavigateToDate(id)
   {
-    alert(id);
+    
     this.router.navigate(['/date',id]);
   }
 

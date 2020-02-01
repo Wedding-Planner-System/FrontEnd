@@ -1,0 +1,17 @@
+<div class="container" id="maindiv">
+    <div class="row">
+      <div *ngFor="let Package of packageList" class="col-lg-4 col-md-6 card" id="padId">
+        <img src="data:image/jpg;base64,{{Package.packageImage}}" class="card-img-top" alt="...">
+        <div class="card-body" >
+          <h3 class="card-title" style="font-size: 20px; font-weight: bold;"> {{Package.packageName}}</h3>
+          
+          <h5> <span style="font-size:13px;font-weight: bold;">Booking Price :</span>{{Package.price}}</h5>
+          
+          <h5><span style="font-size:13px;font-weight: bold;">Extras : </span>{{Package.extra}}</h5>
+          <p class="card-text"></p>
+          <button (click)="NavigateToDate(Package.packageId)" class="btn btn-primary" >Book</button>
+    </div>
+    </div>
+    </div>
+    </div>
+    

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventregisterService } from 'src/app/services/eventregister.service';
+import { Eventregister } from 'src/app/classes/eventregister';
+import { CommonTypeService } from 'src/app/services/common-type.service';
 
 
 @Component({
@@ -9,18 +11,24 @@ import { EventregisterService } from 'src/app/services/eventregister.service';
 })
 export class EventregisterComponent implements OnInit {
 
-  constructor(public svc: EventregisterService) { }
+  constructor(public svc: EventregisterService,public svc1:CommonTypeService) { }
 
   ngOnInit() {
   }
 
-theEvent:any;
+theEvent:Eventregister;
+
 
 SubmitDetails(eventData){ 
     
   this.theEvent=eventData;
+  alert(this.svc.dt);
+  alert(this.svc.serviceId)
+  this.theEvent.serviceType=this.svc1.usertype;
+  this.theEvent.createdDate=this.svc.dt;
+  this.theEvent.serviceType=this.svc.serviceId;
   this.svc.saveEventRegisterDetails(eventData).subscribe((res)=>{
-     console.log("done");
+     alert("Event Registered Successfully")
    });
 }  
 

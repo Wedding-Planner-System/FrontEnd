@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { PackagesService } from 'src/app/services/packages.service';
+import{Location} from '@angular/common';
+import { CommonTypeService } from 'src/app/services/common-type.service';
 
 @Component({
   selector: 'app-packagelist',
@@ -11,7 +13,8 @@ export class PackagelistComponent implements OnInit {
 
   packageList:any=[];
   thePackage:any;
-  constructor(public router: Router,public svc:PackagesService)
+  packageType:any;
+  constructor(public router: Router,public svc:PackagesService,public location:Location,private route: ActivatedRoute,public svc2:CommonTypeService)
   { }
 
 
@@ -23,12 +26,27 @@ export class PackagelistComponent implements OnInit {
   ngOnInit()
   {
 
-    console.log(history.state);
-    alert(history.state);
-    // this.svc.getAllPackages().subscribe((res)=>
-    // {
-    //   this.packageList=res;
-    // })
+    //console.log(history.state);
+    //alert(history.state);
+    
+    // this.route.queryParams.subscribe(params => {
+    
+    //   this.packageType= params['type'];
+    //   alert(this.packageType)
+    //   if(this.packageType!=undefined)
+    //   {
+    // this.svc.packageType=this.packageType;
+    //   }
+    
+   
+    
+    
+  // });
+     this.svc.getAllPackages(this.svc2.type).subscribe((res)=>
+     {
+      
+       this.packageList=res;
+     })
   }
 
  /*
@@ -38,6 +56,7 @@ export class PackagelistComponent implements OnInit {
   */ 
  NavigateToNew()
  {
+
      this.router.navigate(['createPackage']);
  }
 
@@ -73,4 +92,5 @@ UpdatePackage(id)
      this.router.navigate(['/editPackage',id]);
 }
 }
+
 

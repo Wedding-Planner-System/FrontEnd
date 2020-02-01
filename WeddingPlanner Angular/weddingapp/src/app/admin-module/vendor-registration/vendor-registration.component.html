@@ -170,10 +170,10 @@
     </div>
 <div  class="form-group col-5">
     
-    <select formControlName="serviceType" class="form-control"  style="height: 30px;" [ngClass]="{ 'is-invalid': submitted && vendorForm.get('serviceType').errors }"  >
-        <option value="Select"> Select Service</option>
-        <option value="Catering"> Catering</option>
-        <option value="Venue"> Venue</option>
+    <select  formControlName="serviceType" class="form-control"  style="height: 30px;" [ngClass]="{ 'is-invalid': submitted && vendorForm.get('serviceType').errors }"  >
+        <option   value=""> Select Service</option>
+        <option  value="Catering"> Catering</option>
+        <option   value="Venue"> Venue</option>
         <option value="Decoration"> Decoration</option>
     </select>
  
@@ -191,8 +191,8 @@
       
 
         <div class="text-center">
-            <button class="btn btn-primary mr-1">Register</button>
-            <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+            <button class="btn btn-primary mr-1" type="submit">Save</button>
+            <button class="btn btn-secondary" type="reset" >Cancel</button>
         </div>
                   
                     
@@ -203,68 +203,3 @@
 
 
 
-<!-- 
-<div class="container">
-    <form  ngNativeValidate [formGroup]="vendorForm" (ngSubmit)='onSubmit()'>
-       
-    <table align="center">
-        {{error}}
-        <caption style="caption-side: top;" align="center"><h2> Vendor Registration</h2></caption>
-        <tr>
-            <td ></td>
-            <td ><input type="text" formControlName="vendorId" placeholder="VendorId" class="form-control"   hidden ></td>
-            <td ></td>
-        </tr>
-        <tr>
-            <td align="right"><span class="glyphicon glyphicon-user"></span></td>
-            <td ><input type="text" appWordsOnly  formControlName="firstName"  placeholder="First Name" class="form-control" required  ></td>
-            <td ><input type="text" appWordsOnly formControlName="lastName" placeholder="Last Name" class="form-control" required ></td>
-        </tr>
-        <tr >
-            <td align="right"><span class="glyphicon glyphicon-envelope"></span></td>
-            <td><input type="email" formControlName="email" placeholder="Email" class="form-control" required ></td>
-
-        </tr>
-    
-        <tr>
-            <td align="right"><span class="glyphicon glyphicon-earphone"></span></td>
-            <td><input type="text" appNumbersOnly  minlength="10" maxlength="10" formControlName="contactNo" placeholder="Contact No" class="form-control"  required ngModel></td>
-        </tr>
-        <tr formGroupName="address" >
-            <td align="right"><span class="glyphicon glyphicon-map-marker"></span></td>
-            <td><input type="text"   formControlName="area" placeholder="Area" class="form-control" appWordsOnly  required ></td>
-            <td><input type="text" appWordsOnly formControlName="street" placeholder="Street" class="form-control"  required ></td>
-        </tr>
-    
-        <tr formGroupName="address">
-            <td></td>
-            <td><input type="text" appWordsOnly formControlName="city" placeholder="City" class="form-control"  required ></td>
-            <td><input type="text" appWordsOnly formControlName="state" placeholder="State" class="form-control"  required ></td>
-        </tr>
-    
-        <tr formGroupName="address">
-            <td></td>
-            <td><input type="text" appNumbersOnly minlength="6" maxlength="6" formControlName="pinCode" placeholder="Pin Code" class="form-control"  required ></td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td align="right"><span class="glyphicon glyphicon-briefcase"></span></td>
-            <td><select formControlName="serviceType" class="form-control"  style="height: 30px;" required >
-                <option value="Select"> Select Service</option>
-                <option value="Catering"> Catering</option>
-                <option value="Venue"> Venue</option>
-                <option value="Decoration"> Decoration</option>
-            </select></td>
-            <td></td>
-        </tr>
-      
-        <tr>
-            <td></td>
-            <td align="right" ><button class="btn btn-primary" type="submit" >Register</button></td>
-            <td align="left"><button class="btn btn-success" type="reset" >Reset</button></td>
-        </tr>
-         </table>
-        </form>
-</div> -->
-        

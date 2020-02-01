@@ -147,18 +147,18 @@ export class VendorRegistrationComponent implements OnInit {
       }
       else
       {
-        alert("Vendor registered successfully");
+        alert("Vendor saved successfully");
         this.router.navigate(['vendorlist']);
       }
   })
 }
 else{
-  alert("update")
+  
   this.svc.updateVendorDetails(this.vendorForm.value).subscribe((res)=>
   {
 
    
-      alert("Vendor registered successfully");
+      alert("Vendor saved successfully");
       this.router.navigate(['vendorlist']);
     
 })

@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Package } from 'src/app/classes/package';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { PackagesService } from 'src/app/services/packages.service';
+import { CommonTypeService } from 'src/app/services/common-type.service';
+import { VendordataService } from 'src/app/services/vendordata.service';
 
 @Component({
   selector: 'app-package',
@@ -17,31 +19,47 @@ export class PackageComponent implements OnInit {
   thePackage:Package;
   img:any;
   submitted:boolean=false;
-  constructor(public svc: PackagesService,   public formBuilder: FormBuilder ,public router:Router,public activateRoute:ActivatedRoute) 
+  packageType:any;
+  vendorList:any;
+  constructor(public svc: PackagesService,public svc1:CommonTypeService, public svc2:VendordataService,  public formBuilder: FormBuilder ,public router:Router,public activateRoute:ActivatedRoute) 
   {}
 
   ngOnInit() 
   {
 
+    this.packageType=this.svc1.type;
+    
+  
+    this.svc2.getAllVendors(this.svc1.type).subscribe((res)=>
+    {
+
+      this.vendorList=res;
+    })
+
+
+
     this.packageForm=this.formBuilder.group(
       {
         packageId: [null],
-        vendorId: ['',Validators.required],
+        vendorId: [''],
         packageName:['',Validators.required],
         price:['',Validators.required],
         extra:[''],
-        packageImage:['', Validators.required],
-        packageType:[''],
+        packageImage:[''],
+        packageType:[this.svc1.type]
 
       }
     );
 
+    
     
     this.activateRoute.paramMap.subscribe(params=>{
       const packageId=+params.get('id');
       if(packageId)
       {
         this.getPackageId(packageId);
+       
+        
       }
     })
   }
@@ -110,14 +128,18 @@ export class PackageComponent implements OnInit {
  onSubmit()
  {
 
+  
  
    this.submitted=true;
  
    if(this.packageForm.invalid){
+   
      return;
    }
   
    this.thePackage=this.packageForm.value;
+   console.log(this.thePackage)
+ 
    
    if(this.thePackage.packageId==null)
    {
@@ -133,17 +155,19 @@ export class PackageComponent implements OnInit {
      else
      {
        alert("Package registered successfully");
-       this.router.navigate(['packagelist']);
+       this.router.navigate(['packages']);
      }
  })
 }
 else{
  
+ 
  this.svc.updatePackageDetails(this.packageForm.value).subscribe((res)=>
  {
 
+  
      alert("Package registered successfully");
-     this.router.navigate(['pacakgelist']);
+     this.router.navigate(['packages']);
    
 })
 }

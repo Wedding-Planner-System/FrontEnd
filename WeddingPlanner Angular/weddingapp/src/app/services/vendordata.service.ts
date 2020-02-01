@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -26,9 +26,11 @@ export class VendordataService {
   }
 
   //to call get all vendor details api
-  getAllVendors()
+  getAllVendors(type)
   {
-    return this.http.get(this.baseUrl); 
+    let params = new HttpParams();
+    params = params.append("type", type);
+    return this.http.get(this.baseUrl,{params :params}); 
   }
 
   // to call delete vendor by id
@@ -42,4 +44,5 @@ export class VendordataService {
   {
     return this.http.get(this.baseUrl+id);
   }
+ 
 }

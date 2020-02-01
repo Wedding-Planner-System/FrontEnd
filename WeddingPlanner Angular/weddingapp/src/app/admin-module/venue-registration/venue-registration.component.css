@@ -27,3 +27,8 @@ caption
 {
     columns: red;
 }
+select option
+{
+    color: black;
+     background-color: white;
+}

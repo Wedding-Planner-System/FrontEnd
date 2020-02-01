@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { VendordataService } from 'src/app/services/vendordata.service';
+import { CommonTypeService } from 'src/app/services/common-type.service';
 
 @Component({
   selector: 'app-vendor-list',
@@ -12,7 +13,7 @@ export class VendorListComponent implements OnInit {
  
   vendorList:any=[];
   theVendor:any;
-  constructor(public svc:VendordataService,public router:Router) { }
+  constructor(public svc:VendordataService,public router:Router,public svc1:CommonTypeService) { }
 
 
   /*
@@ -21,7 +22,7 @@ export class VendorListComponent implements OnInit {
   * Date : 20 -Jan -2019
   */
   ngOnInit() {
-    this.svc.getAllVendors().subscribe((res)=>
+    this.svc.getAllVendors(this.svc1.type).subscribe((res)=>
     {
       this.vendorList=res;
     })
@@ -70,6 +71,7 @@ export class VendorListComponent implements OnInit {
       this.router.navigate(['/editVendor',id]);
  }
 }
+
 
 
 

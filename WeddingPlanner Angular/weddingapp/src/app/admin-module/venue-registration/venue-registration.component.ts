@@ -5,6 +5,8 @@ import { VenuedataService } from 'src/app/services/venuedata.service';
 import { Observable } from 'rxjs';
 import { FormGroup, FormBuilder, FormControl, Validators, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { VendordataService } from 'src/app/services/vendordata.service';
+import { CommonTypeService } from 'src/app/services/common-type.service';
 
 @Component({
   selector: 'app-venue-registration',
@@ -19,13 +21,23 @@ export class VenueRegistrationComponent implements OnInit {
   theVenue:Venue;
   img:any;
   submitted:boolean=false;
-  constructor(public formBuilder: FormBuilder,public svc :VenuedataService ,public router:Router,public activateRoute:ActivatedRoute)
+  imgName:any;
+  vendorList:any;
+  constructor(public svc1: VendordataService, public svc2:CommonTypeService,   public formBuilder: FormBuilder,public svc :VenuedataService ,public router:Router,public activateRoute:ActivatedRoute)
   {
   }
   
 
   ngOnInit()
    {
+    
+    
+    this.svc1.getAllVendors(this.svc2.type).subscribe((res)=>
+    {
+
+      this.vendorList=res;
+    })
+
     this.venueForm=this.formBuilder.group(
       {
         venueId: [null],
@@ -42,7 +54,8 @@ export class VenueRegistrationComponent implements OnInit {
         capacity:['',Validators.required],
         price:['',Validators.required],
         extra:[''],
-        venueImage:['']
+        venueImage:[''],
+        imageName:['']
       }
     );
 
@@ -58,6 +71,7 @@ export class VenueRegistrationComponent implements OnInit {
   get v() { return this.venueForm.controls; }
   getVenueId(id)
   {
+  
     this.svc.getVenueById(id).subscribe(
       (res)=>
       this.editVenue(res),
@@ -104,7 +118,8 @@ export class VenueRegistrationComponent implements OnInit {
       capacity:venue.capacity,
       price:venue.price,
       extra:venue.extra,
-      venueImage:venue.venueImage
+      venueImage:venue.venueImage,
+      imageName:venue.imageName
     })
   }
 
@@ -116,6 +131,8 @@ export class VenueRegistrationComponent implements OnInit {
   onSelectFile(event) 
   {
     this.img = event.target.files[0];
+  
+   
   }
 
   /* Purpose: To save Venue data
@@ -127,16 +144,17 @@ export class VenueRegistrationComponent implements OnInit {
 
  
    this.submitted=true;
-   alert(this.venueForm.value);
+ 
    if(this.venueForm.invalid){
      return;
    }
-   console.log(this.venueForm.value);
+   
    this.theVenue=this.venueForm.value;
-   console.log(this.theVenue.venueId);
+  
+  
    if(this.theVenue.venueId==null)
    {
-     alert("new");
+    
    this.svc.saveVenuedetails(this.theVenue,this.img).subscribe((res)=>
    {
 
@@ -148,19 +166,23 @@ export class VenueRegistrationComponent implements OnInit {
      else
      {
        alert("Venue registered successfully");
-       this.router.navigate(['venulist']);
+       this.router.navigate(['venuelist']);
      }
  })
 }
 else{
- alert("update")
- this.svc.updateVenueDetails(this.venueForm.value).subscribe((res)=>
+ 
+ this.svc.updateVenueDetails(this.venueForm.value,this.imgName).subscribe((res)=>
  {
 
      alert("Venue registered successfully");
-     this.router.navigate(['venulist']);
+     this.router.navigate(['venuelist']);
    
 })
 }
+}
+onReset()
+{
+  this.router.navigate(['venuelist']);
 }
 }
